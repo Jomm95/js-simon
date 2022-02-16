@@ -24,6 +24,7 @@ document.getElementById("generated_numbers").innerHTML = `Questi sono i numeri g
 //dopo 3 secondi nascondo i numeri, l'utente ne avrà altri 7 prima inserire i suoi
 setTimeout(hideElement, 3000);
 setTimeout(userPrompt, 5000);
+setTimeout(showElement, 7000);
 
 
 //FUNZIONI_____________________________________________________________
@@ -37,6 +38,12 @@ function hideElement () {
     numeriGenerati.classList.add("d_none");
 }
 
+//funzione che mostra i numeri alla fine del gioco
+function showElement () {
+    numeriGenerati.classList.add("d_block");
+}
+
+
 //funzione che prompta 5 volte il numero dall'utente
 function userPrompt () {
     for( let i = 0; i < generatedNumbers.length; i++) {
@@ -44,12 +51,13 @@ function userPrompt () {
         userNumbers.push(question);
 
 
+        //uso includes che restituisce un valore booleano, che popolerà(se true) l'array arrayGuessNumber
         guessNumber = userNumbers.includes(generatedNumbers[i]);
         if(guessNumber == true) {
             arrayGuessNumber.push(guessNumber);
         }
     }
-    //non fa vedere gli elementi dell'array (boh) però si sa la lunghezza
+    //sapendo il numero di "true" so quanti numeri l'utente ha indovinato
     console.log(arrayGuessNumber);
     switch(arrayGuessNumber.length) {
         case 0:
