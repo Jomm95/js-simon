@@ -46,7 +46,7 @@ function userPrompt () {
 
         guessNumber = userNumbers.includes(generatedNumbers[i]);
         if(guessNumber == true) {
-            arrayGuessNumber.push(guessNumber[i]);
+            arrayGuessNumber.push(guessNumber);
         }
     }
     //non fa vedere gli elementi dell'array (boh) però si sa la lunghezza
